@@ -13,14 +13,11 @@
         --moe-green:   #07a869;
         --moe-teal:    #15445a;
         --moe-gold:    #c1b489;
-        --moe-gray:    #c2c1c1;
         --moe-blue:    #3d7eb9;
         --moe-blue-2:  #3078a6;
         --moe-teal-2:  #218caa;
         --moe-cyan:    #69cee3;
         --moe-purple:  #351375;
-        --moe-purple-2:#7258a4;
-        --moe-purple-3:#7a80ff;
 
         --bg:        #f5f7f9;
         --paper:     #ffffff;
@@ -33,14 +30,13 @@
         --green-100: #c9ecdb;
         --teal-50:   #eaf0f4;
         --teal-100:  #d4e0e7;
-        --gold-50:   #f7f4ec;
+        --danger:    #c0392b;
 
         --shadow-sm: 0 1px 2px rgba(21,68,90,.05);
         --shadow-md: 0 4px 14px rgba(21,68,90,.07);
         --shadow-lg: 0 12px 40px rgba(21,68,90,.10);
 
         --moe-gradient: linear-gradient(135deg, var(--moe-green) 0%, var(--moe-teal-2) 50%, var(--moe-teal) 100%);
-        --moe-gradient-soft: linear-gradient(135deg, var(--moe-green) 0%, var(--moe-teal) 100%);
 
         --radius-sm: 6px;
         --radius-md: 10px;
@@ -59,28 +55,30 @@
         display: flex;
         min-height: 100vh;
         -webkit-font-smoothing: antialiased;
-        font-weight: 400;
     }
 
     .app-container { display: flex; width: 100%; height: 100vh; overflow: hidden; }
 
+    /* ==================== لوحة التحكم ==================== */
     .form-section {
-        width: 460px;
+        width: 470px;
         background: var(--paper);
         border-left: 1px solid var(--line);
         display: flex;
         flex-direction: column;
         box-shadow: -6px 0 24px rgba(21,68,90,.05);
         z-index: 10;
+        position: relative;
     }
 
     .form-header {
-        padding: 24px 22px 20px;
+        padding: 22px 22px 20px;
         background: var(--moe-gradient);
         color: #fff;
         text-align: center;
         position: relative;
         overflow: hidden;
+        flex-shrink: 0;
     }
     .form-header::before {
         content: '';
@@ -100,63 +98,43 @@
         border: 1px solid rgba(255,255,255,.22);
         padding: 4px 12px;
         border-radius: 999px;
-        font-size: .7rem;
+        font-size: .68rem;
         font-weight: 500;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         position: relative;
         z-index: 1;
-        letter-spacing: .2px;
     }
-    .header-badge i { color: var(--moe-cyan); font-size: .7rem; }
+    .header-badge i { color: var(--moe-cyan); font-size: .68rem; }
 
     .form-header h2 {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
         font-weight: 700;
         margin-bottom: 4px;
         position: relative;
         z-index: 1;
-        letter-spacing: -.2px;
     }
     .form-header p {
-        font-size: .76rem;
+        font-size: .72rem;
         opacity: .85;
         position: relative;
         z-index: 1;
         font-weight: 300;
-        letter-spacing: .1px;
-    }
-
-    .form-actions {
-        display: flex;
-        gap: 7px;
-        justify-content: center;
-        margin-top: 16px;
-        flex-wrap: wrap;
-        position: relative;
-        z-index: 1;
     }
 
     .btn {
-        padding: 9px 13px;
+        padding: 8px 11px;
         border: none;
         border-radius: var(--radius-sm);
         cursor: pointer;
         font-weight: 600;
-        font-size: .8rem;
+        font-size: .74rem;
         transition: all .18s ease;
         display: inline-flex;
         align-items: center;
-        gap: 6px;
+        gap: 5px;
         font-family: inherit;
-        letter-spacing: -.1px;
     }
     .btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
-    .btn:active { transform: translateY(0); }
-
-    .btn-save  { background: var(--moe-green); color: #fff; }
-    .btn-load  { background: var(--moe-blue); color: #fff; }
-    .btn-clear { background: #c0392b; color: #fff; }
-    .btn-print { background: var(--moe-teal); color: #fff; }
 
     .btn-add-row {
         background: var(--moe-green);
@@ -174,7 +152,7 @@
     }
     .btn-cancel-edit {
         background: transparent;
-        color: #c0392b;
+        color: var(--danger);
         border: 1px solid #e3b7b2;
         padding: 8px 14px;
         font-size: .78rem;
@@ -187,23 +165,16 @@
 
     .btn-export { background: var(--moe-teal-2); color: #fff; font-size: .76rem; flex: 1; justify-content: center; }
     .btn-import { background: var(--moe-blue-2); color: #fff; font-size: .76rem; flex: 1; justify-content: center; }
-    .btn-del-row{ background: #c0392b; color: #fff; padding: 4px 8px; font-size: .68rem; border-radius: 5px; }
+    .btn-del-row{ background: var(--danger); color: #fff; padding: 4px 8px; font-size: .68rem; border-radius: 5px; }
     .btn-mini   { background: var(--moe-teal-2); color: #fff; padding: 4px 8px; font-size: .68rem; border-radius: 5px; }
-    .btn-edit-row {
-        background: var(--moe-blue);
-        color: #fff;
-        padding: 4px 8px;
-        font-size: .68rem;
-        border-radius: 5px;
-    }
-    .btn-edit-row:hover { background: var(--moe-blue-2); }
+    .btn-edit-row { background: var(--moe-blue); color: #fff; padding: 4px 8px; font-size: .68rem; border-radius: 5px; }
     .btn-mini:disabled, .btn-del-row:disabled { opacity: .3; cursor: not-allowed; transform: none !important; filter: none; }
 
     .toast-msg {
         padding: 10px 14px;
         margin: 12px 0 0 0;
         border-radius: var(--radius-sm);
-        font-size: .78rem;
+        font-size: .76rem;
         display: none;
         align-items: center;
         justify-content: center;
@@ -215,14 +186,86 @@
     }
     @keyframes slideDown { from { transform: translateY(-6px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     .toast-success { background: var(--moe-green); color: #fff; }
-    .toast-error   { background: #c0392b; color: #fff; }
+    .toast-error   { background: var(--danger); color: #fff; }
+    .toast-info    { background: var(--moe-teal-2); color: #fff; }
 
-    .form-body { padding: 20px 22px 32px; overflow-y: auto; flex-grow: 1; }
+    .form-body {
+        padding: 20px 22px 90px;
+        overflow-y: auto;
+        flex-grow: 1;
+    }
     .form-body::-webkit-scrollbar { width: 8px; }
     .form-body::-webkit-scrollbar-track { background: var(--bg); }
     .form-body::-webkit-scrollbar-thumb { background: var(--teal-100); border-radius: 4px; }
-    .form-body::-webkit-scrollbar-thumb:hover { background: var(--moe-teal-2); }
 
+    /* ==================== الشريط السفلي الثابت ==================== */
+    .form-footer-bar {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: linear-gradient(180deg, rgba(255,255,255,.6) 0%, #ffffff 40%);
+        border-top: 1px solid var(--line);
+        padding: 14px 22px 16px;
+        display: flex;
+        gap: 10px;
+        box-shadow: 0 -8px 24px rgba(21,68,90,.06);
+        backdrop-filter: blur(8px);
+        z-index: 5;
+    }
+    .form-footer-bar::before {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; left: 0;
+        height: 3px;
+        background: var(--moe-gradient);
+        opacity: .9;
+    }
+
+    .btn-footer {
+        flex: 1;
+        padding: 12px 14px;
+        border: none;
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        font-weight: 700;
+        font-size: .82rem;
+        transition: all .2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        font-family: inherit;
+        position: relative;
+        overflow: hidden;
+        letter-spacing: -.1px;
+    }
+    .btn-footer i { font-size: .9rem; }
+    .btn-footer:hover { transform: translateY(-2px); }
+    .btn-footer:active { transform: translateY(0); }
+
+    .btn-footer-save {
+        background: linear-gradient(135deg, #08b874 0%, #07a869 100%);
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(7,168,105,.32), inset 0 1px 0 rgba(255,255,255,.2);
+    }
+    .btn-footer-save:hover { box-shadow: 0 6px 18px rgba(7,168,105,.42), inset 0 1px 0 rgba(255,255,255,.2); }
+
+    .btn-footer-clear {
+        background: linear-gradient(135deg, #d64a3a 0%, #c0392b 100%);
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(192,57,43,.30), inset 0 1px 0 rgba(255,255,255,.18);
+    }
+    .btn-footer-clear:hover { box-shadow: 0 6px 18px rgba(192,57,43,.40), inset 0 1px 0 rgba(255,255,255,.18); }
+
+    .btn-footer-print {
+        background: linear-gradient(135deg, #1b5170 0%, #15445a 100%);
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(21,68,90,.30), inset 0 1px 0 rgba(255,255,255,.15);
+    }
+    .btn-footer-print:hover { box-shadow: 0 6px 18px rgba(21,68,90,.42), inset 0 1px 0 rgba(255,255,255,.15); }
+
+    /* ==================== عناوين الأقسام ==================== */
     .sec-title {
         display: flex;
         align-items: center;
@@ -243,7 +286,7 @@
         width: 44px; height: 2px;
         background: var(--moe-green);
     }
-    .sec-title i {
+    .sec-title > i:first-child {
         width: 26px; height: 26px;
         display: inline-flex;
         align-items: center;
@@ -252,7 +295,9 @@
         color: var(--moe-green);
         border-radius: 7px;
         font-size: .72rem;
+        flex-shrink: 0;
     }
+    .sec-title .sec-title-text { flex: 1; }
 
     .form-group { margin-bottom: 13px; }
     .form-group label {
@@ -281,11 +326,6 @@
         border-color: var(--moe-green);
         box-shadow: 0 0 0 3px rgba(7,168,105,.12);
     }
-    .form-control:disabled {
-        background: var(--teal-50);
-        color: var(--ink-mute);
-        cursor: not-allowed;
-    }
 
     .grid-2 { display: flex; gap: 10px; }
     .grid-2 > * { flex: 1; min-width: 0; }
@@ -313,7 +353,6 @@
         font-weight: 600;
     }
     .dynamic-table-controls h4 i { color: var(--moe-green); }
-    .dynamic-table-controls.editing-mode h4 i { color: var(--moe-teal-2); }
 
     .edit-banner {
         display: none;
@@ -323,7 +362,7 @@
         color: #fff;
         padding: 8px 12px;
         border-radius: var(--radius-sm);
-        font-size: .76rem;
+        font-size: .74rem;
         font-weight: 500;
         margin-bottom: 12px;
         animation: slideDown .25s ease;
@@ -394,7 +433,6 @@
     .preview-section::-webkit-scrollbar { width: 10px; }
     .preview-section::-webkit-scrollbar-track { background: transparent; }
     .preview-section::-webkit-scrollbar-thumb { background: rgba(21,68,90,.18); border-radius: 5px; }
-    .preview-section::-webkit-scrollbar-thumb:hover { background: rgba(21,68,90,.3); }
 
     .a4-card {
         width: 297mm;
@@ -523,15 +561,12 @@
         align-items: center;
         justify-content: space-between;
         font-size: .76rem;
-        letter-spacing: .1px;
     }
     .sec-header i { opacity: .9; font-size: .76rem; }
 
     .bg-info     { background: var(--moe-green); }
     .bg-desc     { background: var(--moe-teal); }
     .bg-topics   { background: var(--moe-teal); }
-    .bg-factors  { background: var(--moe-green); }
-    .bg-partners { background: var(--moe-purple); }
 
     .sec-content {
         padding: 10px 14px;
@@ -540,7 +575,6 @@
         background: var(--paper);
         color: var(--ink-soft);
         line-height: 1.65;
-        font-weight: 400;
     }
 
     .info-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
@@ -573,7 +607,6 @@
         border-left: 1px solid var(--line-soft);
         font-weight: 700;
         font-size: .7rem;
-        letter-spacing: -.1px;
     }
     .styled-table th:last-child { border-left: none; }
     .styled-table td {
@@ -584,7 +617,6 @@
         word-wrap: break-word;
         line-height: 1.55;
         color: var(--ink-soft);
-        font-weight: 400;
     }
     .styled-table td:last-child { border-left: none; }
     .styled-table tbody tr:nth-child(even) { background: #fbfcfd; }
@@ -695,9 +727,11 @@
         vertical-align: middle;
     }
 
+    /* ==================== التجاوب ==================== */
     @media (max-width: 1200px) {
         .app-container { flex-direction: column; overflow: auto; }
-        .form-section { width: 100%; border-left: none; border-bottom: 1px solid var(--line); flex-shrink: 0; }
+        .form-section { width: 100%; border-left: none; border-bottom: 1px solid var(--line); flex-shrink: 0; height: auto; }
+        .form-footer-bar { position: sticky; }
         .preview-section { overflow: visible; padding: 12px; }
         .a4-card {
             transform: scale(calc(100vw / 310mm));
@@ -729,6 +763,8 @@
 <div class="app-container">
 
     <aside class="form-section">
+
+        <!-- ============ الترويسة ============ -->
         <div class="form-header">
             <div class="header-badge">
                 <i class="fas fa-crown"></i>
@@ -736,18 +772,17 @@
             </div>
             <h2>لوحة إدارة الاجتماع</h2>
             <p>تنسيق وإدارة محاور الاجتماع ونشرها</p>
-            <div class="form-actions">
-                <button type="button" class="btn btn-save"  onclick="saveData()"><i class="fas fa-save"></i> حفظ</button>
-                <button type="button" class="btn btn-load"  onclick="loadData()"><i class="fas fa-upload"></i> استرجاع</button>
-                <button type="button" class="btn btn-clear" onclick="clearData()"><i class="fas fa-trash"></i> مسح</button>
-                <button type="button" class="btn btn-print" onclick="window.print()"><i class="fas fa-print"></i> طباعة</button>
-            </div>
+
             <div id="toast-notification" class="toast-msg"></div>
         </div>
 
         <div class="form-body">
 
-            <div class="sec-title"><i class="fas fa-calendar-check"></i> بيانات الاجتماع</div>
+            <!-- ========== بيانات الاجتماع ========== -->
+            <div class="sec-title">
+                <i class="fas fa-calendar-check"></i>
+                <span class="sec-title-text">بيانات الاجتماع</span>
+            </div>
 
             <div class="form-group">
                 <label>عنوان الاجتماع</label>
@@ -797,7 +832,11 @@
                 <textarea id="inp-purpose" class="form-control" placeholder="استعراض خطط ومبادرات الإدارات والأقسام والوحدات..." oninput="updateView()"></textarea>
             </div>
 
-            <div class="sec-title"><i class="fas fa-list-ol"></i> إضافة محور للاجتماع</div>
+            <!-- ========== إضافة محور ========== -->
+            <div class="sec-title">
+                <i class="fas fa-list-ol"></i>
+                <span class="sec-title-text">إضافة محور للاجتماع</span>
+            </div>
 
             <div class="dynamic-table-controls" id="topics-form-box">
                 <h4><i class="fas fa-building" id="form-box-icon"></i> <span id="form-box-title">نموذج الإدارات والأقسام والوحدات</span></h4>
@@ -841,7 +880,7 @@
 
                 <p class="hint">
                     <i class="fas fa-info-circle"></i>
-                    <span>لتعديل <b>محور الافتتاح</b> اضغط على أيقونة القلم ✏️ بجانبه في قائمة المحاور بالأسفل، ثم عدّل الحقول هنا.</span>
+                    <span>لتعديل <b>محور الافتتاح</b> اضغط على أيقونة القلم ✏️ بجانبه في قائمة المحاور بالأسفل.</span>
                 </p>
 
                 <div id="topics-list-manage" style="margin-top: 14px;"></div>
@@ -857,7 +896,11 @@
                 </div>
             </div>
 
-            <div class="sec-title"><i class="fas fa-stamp"></i> اعتماد الاجتماع</div>
+            <!-- ========== اعتماد الاجتماع ========== -->
+            <div class="sec-title">
+                <i class="fas fa-stamp"></i>
+                <span class="sec-title-text">اعتماد الاجتماع</span>
+            </div>
 
             <div class="form-group">
                 <label>اسم المعتمد</label>
@@ -869,8 +912,26 @@
             </div>
 
         </div>
+
+        <!-- ============ شريط الأزرار السفلي الثابت ============ -->
+        <div class="form-footer-bar">
+            <button type="button" class="btn-footer btn-footer-save" onclick="saveData()">
+                <i class="fas fa-save"></i>
+                <span>حفظ</span>
+            </button>
+            <button type="button" class="btn-footer btn-footer-clear" onclick="clearData()">
+                <i class="fas fa-trash"></i>
+                <span>مسح</span>
+            </button>
+            <button type="button" class="btn-footer btn-footer-print" onclick="window.print()">
+                <i class="fas fa-print"></i>
+                <span>طباعة</span>
+            </button>
+        </div>
+
     </aside>
 
+    <!-- ===================== المعاينة ===================== -->
     <main class="preview-section">
         <div class="a4-card" id="print-area">
 
@@ -1019,7 +1080,6 @@ let stateData = {
     ]
 };
 
-/* حالة التعديل على محور الافتتاح */
 let editingFixedTopic = false;
 
 /* ==================== أدوات مساعدة ==================== */
@@ -1142,11 +1202,9 @@ function addTopic() {
     if (!entity) { showToast('يرجى تحديد الإدارة / القسم / الوحدة', 'error'); return; }
     if (!duration || duration <= 0) { showToast('يرجى إدخال مدة صحيحة بالدقائق', 'error'); return; }
 
-    /* وضع التعديل على محور الافتتاح */
     if (editingFixedTopic) {
         stateData.topics[0] = {
-            axis,
-            entity,
+            axis, entity,
             presenter: presenter || '---',
             duration,
             notes: notes || '',
@@ -1159,7 +1217,6 @@ function addTopic() {
         return;
     }
 
-    /* الإضافة العادية */
     stateData.topics.push({
         axis, entity,
         presenter: presenter || '---',
@@ -1175,7 +1232,6 @@ function addTopic() {
     showToast('تمت إضافة المحور بنجاح', 'success');
 }
 
-/* بدء تعديل محور الافتتاح */
 function startEditFixedTopic() {
     const fixed = stateData.topics[0];
     if (!fixed || !fixed.fixed) return;
@@ -1188,30 +1244,23 @@ function startEditFixedTopic() {
     $('top-duration').value  = fixed.duration || 15;
     $('top-notes').value     = fixed.notes || '';
 
-    /* تحويل الزر إلى وضع التحديث */
     $('btn-add-text').textContent = 'تحديث محور الافتتاح';
     $('btn-add-icon').className   = 'fas fa-save';
     $('btn-add-topic').classList.add('editing');
     $('btn-cancel-edit').style.display = 'inline-flex';
 
-    /* إظهار البانر وتلوين الصندوق */
     $('edit-banner').classList.add('show');
     $('topics-form-box').classList.add('editing-mode');
     $('form-box-icon').className = 'fas fa-pen-to-square';
     $('form-box-title').textContent = 'تعديل محور الافتتاح';
 
-    /* تحديث قائمة المحاور لإبراز الصف الجاري تعديله */
     renderManageList();
-
-    /* تمرير إلى النموذج */
     $('topics-form-box').scrollIntoView({ behavior: 'smooth', block: 'start' });
     setTimeout(() => $('top-axis').focus(), 300);
 }
 
-/* إلغاء وضع التعديل */
 function cancelEditFixed() {
     editingFixedTopic = false;
-
     ['top-entity', 'top-axis', 'top-presenter', 'top-notes'].forEach(id => $(id).value = '');
     $('top-duration').value = 10;
 
@@ -1224,7 +1273,6 @@ function cancelEditFixed() {
     $('topics-form-box').classList.remove('editing-mode');
     $('form-box-icon').className = 'fas fa-building';
     $('form-box-title').textContent = 'نموذج الإدارات والأقسام والوحدات';
-
     renderManageList();
 }
 
@@ -1336,37 +1384,10 @@ function importTopics(file) {
     reader.readAsText(file);
 }
 
-/* ==================== الحفظ والاسترجاع ==================== */
+/* ==================== الحفظ والمسح ==================== */
 function saveData() {
     localStorage.setItem('meeting_agenda_data', JSON.stringify(stateData));
     showToast('تم حفظ البيانات محلياً بنجاح', 'success');
-}
-
-function loadData() {
-    const saved = localStorage.getItem('meeting_agenda_data');
-    if (!saved) { showToast('لا توجد بيانات محفوظة مسبقاً', 'error'); return; }
-
-    const parsed = JSON.parse(saved);
-    stateData = Object.assign(stateData, parsed);
-
-    if (!stateData.topics.length || !stateData.topics[0].fixed) {
-        stateData.topics.unshift({
-            axis: 'الافتتاح وكلمة المساعد للشؤون التعليمية وتوجيهاته',
-            entity: FIXED_ENTITY,
-            presenter: stateData.assistantName || '---',
-            duration: 15,
-            notes: 'محور ثابت',
-            fixed: true
-        });
-    }
-
-    /* إلغاء أي وضع تعديل قبل الاسترجاع */
-    cancelEditFixed();
-
-    bindInputs();
-    updateView();
-    renderManageList();
-    showToast('تم استرجاع البيانات بنجاح', 'success');
 }
 
 function clearData() {
@@ -1387,7 +1408,6 @@ function clearData() {
     };
 
     cancelEditFixed();
-
     bindInputs();
     updateView();
     renderManageList();
@@ -1399,7 +1419,8 @@ function showToast(msg, type) {
     const toast = $('toast-notification');
     if (!toast) return;
     toast.className = `toast-msg toast-${type}`;
-    toast.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i> ${msg}`;
+    const icon = type === 'success' ? 'check-circle' : type === 'info' ? 'info-circle' : 'exclamation-circle';
+    toast.innerHTML = `<i class="fas fa-${icon}"></i> ${msg}`;
     toast.style.display = 'flex';
     clearTimeout(toast._timer);
     toast._timer = setTimeout(() => { toast.style.display = 'none'; }, 2500);
