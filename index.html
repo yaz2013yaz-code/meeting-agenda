@@ -13,11 +13,14 @@
         --moe-green:   #07a869;
         --moe-teal:    #15445a;
         --moe-gold:    #c1b489;
+        --moe-gray:    #c2c1c1;
         --moe-blue:    #3d7eb9;
         --moe-blue-2:  #3078a6;
         --moe-teal-2:  #218caa;
         --moe-cyan:    #69cee3;
         --moe-purple:  #351375;
+        --moe-purple-2:#7258a4;
+        --moe-purple-3:#7a80ff;
 
         --bg:        #f5f7f9;
         --paper:     #ffffff;
@@ -30,13 +33,14 @@
         --green-100: #c9ecdb;
         --teal-50:   #eaf0f4;
         --teal-100:  #d4e0e7;
-        --danger:    #c0392b;
+        --gold-50:   #f7f4ec;
 
         --shadow-sm: 0 1px 2px rgba(21,68,90,.05);
         --shadow-md: 0 4px 14px rgba(21,68,90,.07);
         --shadow-lg: 0 12px 40px rgba(21,68,90,.10);
 
         --moe-gradient: linear-gradient(135deg, var(--moe-green) 0%, var(--moe-teal-2) 50%, var(--moe-teal) 100%);
+        --moe-gradient-soft: linear-gradient(135deg, var(--moe-green) 0%, var(--moe-teal) 100%);
 
         --radius-sm: 6px;
         --radius-md: 10px;
@@ -55,13 +59,13 @@
         display: flex;
         min-height: 100vh;
         -webkit-font-smoothing: antialiased;
+        font-weight: 400;
     }
 
     .app-container { display: flex; width: 100%; height: 100vh; overflow: hidden; }
 
-    /* ==================== لوحة التحكم ==================== */
     .form-section {
-        width: 470px;
+        width: 460px;
         background: var(--paper);
         border-left: 1px solid var(--line);
         display: flex;
@@ -71,7 +75,7 @@
     }
 
     .form-header {
-        padding: 22px 22px 18px;
+        padding: 24px 22px 20px;
         background: var(--moe-gradient);
         color: #fff;
         text-align: center;
@@ -96,61 +100,63 @@
         border: 1px solid rgba(255,255,255,.22);
         padding: 4px 12px;
         border-radius: 999px;
-        font-size: .68rem;
+        font-size: .7rem;
         font-weight: 500;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         position: relative;
         z-index: 1;
+        letter-spacing: .2px;
     }
-    .header-badge i { color: var(--moe-cyan); font-size: .68rem; }
+    .header-badge i { color: var(--moe-cyan); font-size: .7rem; }
 
     .form-header h2 {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         font-weight: 700;
         margin-bottom: 4px;
         position: relative;
         z-index: 1;
+        letter-spacing: -.2px;
     }
     .form-header p {
-        font-size: .72rem;
+        font-size: .76rem;
         opacity: .85;
         position: relative;
         z-index: 1;
         font-weight: 300;
+        letter-spacing: .1px;
     }
 
     .form-actions {
         display: flex;
-        gap: 6px;
+        gap: 7px;
         justify-content: center;
-        margin-top: 14px;
+        margin-top: 16px;
         flex-wrap: wrap;
         position: relative;
         z-index: 1;
     }
 
     .btn {
-        padding: 8px 11px;
+        padding: 9px 13px;
         border: none;
         border-radius: var(--radius-sm);
         cursor: pointer;
         font-weight: 600;
-        font-size: .74rem;
+        font-size: .8rem;
         transition: all .18s ease;
         display: inline-flex;
         align-items: center;
-        gap: 5px;
+        gap: 6px;
         font-family: inherit;
+        letter-spacing: -.1px;
     }
     .btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
     .btn:active { transform: translateY(0); }
 
     .btn-save  { background: var(--moe-green); color: #fff; }
     .btn-load  { background: var(--moe-blue); color: #fff; }
-    .btn-clear { background: var(--danger); color: #fff; }
+    .btn-clear { background: #c0392b; color: #fff; }
     .btn-print { background: var(--moe-teal); color: #fff; }
-    .btn-pass  { background: rgba(255,255,255,.18); color: #fff; border: 1px solid rgba(255,255,255,.28); }
-    .btn-pass:hover { background: rgba(255,255,255,.28); }
 
     .btn-add-row {
         background: var(--moe-green);
@@ -168,7 +174,7 @@
     }
     .btn-cancel-edit {
         background: transparent;
-        color: var(--danger);
+        color: #c0392b;
         border: 1px solid #e3b7b2;
         padding: 8px 14px;
         font-size: .78rem;
@@ -181,16 +187,23 @@
 
     .btn-export { background: var(--moe-teal-2); color: #fff; font-size: .76rem; flex: 1; justify-content: center; }
     .btn-import { background: var(--moe-blue-2); color: #fff; font-size: .76rem; flex: 1; justify-content: center; }
-    .btn-del-row{ background: var(--danger); color: #fff; padding: 4px 8px; font-size: .68rem; border-radius: 5px; }
+    .btn-del-row{ background: #c0392b; color: #fff; padding: 4px 8px; font-size: .68rem; border-radius: 5px; }
     .btn-mini   { background: var(--moe-teal-2); color: #fff; padding: 4px 8px; font-size: .68rem; border-radius: 5px; }
-    .btn-edit-row { background: var(--moe-blue); color: #fff; padding: 4px 8px; font-size: .68rem; border-radius: 5px; }
+    .btn-edit-row {
+        background: var(--moe-blue);
+        color: #fff;
+        padding: 4px 8px;
+        font-size: .68rem;
+        border-radius: 5px;
+    }
+    .btn-edit-row:hover { background: var(--moe-blue-2); }
     .btn-mini:disabled, .btn-del-row:disabled { opacity: .3; cursor: not-allowed; transform: none !important; filter: none; }
 
     .toast-msg {
         padding: 10px 14px;
         margin: 12px 0 0 0;
         border-radius: var(--radius-sm);
-        font-size: .76rem;
+        font-size: .78rem;
         display: none;
         align-items: center;
         justify-content: center;
@@ -202,15 +215,14 @@
     }
     @keyframes slideDown { from { transform: translateY(-6px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     .toast-success { background: var(--moe-green); color: #fff; }
-    .toast-error   { background: var(--danger); color: #fff; }
-    .toast-info    { background: var(--moe-teal-2); color: #fff; }
+    .toast-error   { background: #c0392b; color: #fff; }
 
     .form-body { padding: 20px 22px 32px; overflow-y: auto; flex-grow: 1; }
     .form-body::-webkit-scrollbar { width: 8px; }
     .form-body::-webkit-scrollbar-track { background: var(--bg); }
     .form-body::-webkit-scrollbar-thumb { background: var(--teal-100); border-radius: 4px; }
+    .form-body::-webkit-scrollbar-thumb:hover { background: var(--moe-teal-2); }
 
-    /* ==================== عناوين الأقسام مع زر القفل ==================== */
     .sec-title {
         display: flex;
         align-items: center;
@@ -231,7 +243,7 @@
         width: 44px; height: 2px;
         background: var(--moe-green);
     }
-    .sec-title > i:first-child {
+    .sec-title i {
         width: 26px; height: 26px;
         display: inline-flex;
         align-items: center;
@@ -240,71 +252,6 @@
         color: var(--moe-green);
         border-radius: 7px;
         font-size: .72rem;
-        flex-shrink: 0;
-    }
-    .sec-title .sec-title-text { flex: 1; }
-
-    /* زر القفل بجانب العناوين المحمية */
-    .lock-btn {
-        width: 30px;
-        height: 30px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-        border: 1.5px solid var(--line);
-        background: var(--paper);
-        color: var(--ink-mute);
-        cursor: pointer;
-        font-size: .78rem;
-        transition: all .2s;
-        flex-shrink: 0;
-        position: relative;
-    }
-    .lock-btn:hover { border-color: var(--moe-green); color: var(--moe-green); background: var(--green-50); }
-    .lock-btn.locked {
-        background: #fff4f2;
-        border-color: #f0c4bc;
-        color: var(--danger);
-    }
-    .lock-btn.locked:hover { border-color: var(--danger); background: #ffe9e5; }
-    .lock-btn.unlocked {
-        background: var(--green-50);
-        border-color: var(--green-100);
-        color: var(--moe-green);
-    }
-
-    /* حالة الصندوق المحمي - تجميد */
-    .form-section.locked-basic .form-body .protected-field {
-        pointer-events: none;
-        opacity: .65;
-        user-select: none;
-    }
-    .form-section.locked-basic .form-body .protected-field .form-control {
-        background: var(--teal-50);
-        color: var(--ink-mute);
-        cursor: not-allowed;
-        border-color: var(--line);
-    }
-
-    /* شارة صغيرة "محمي" */
-    .protected-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        background: #fff4f2;
-        color: var(--danger);
-        border: 1px solid #f0c4bc;
-        padding: 2px 8px;
-        border-radius: 999px;
-        font-size: .62rem;
-        font-weight: 600;
-        margin-right: auto;
-    }
-    .protected-badge.unlocked {
-        background: var(--green-50);
-        color: var(--moe-green);
-        border-color: var(--green-100);
     }
 
     .form-group { margin-bottom: 13px; }
@@ -366,6 +313,7 @@
         font-weight: 600;
     }
     .dynamic-table-controls h4 i { color: var(--moe-green); }
+    .dynamic-table-controls.editing-mode h4 i { color: var(--moe-teal-2); }
 
     .edit-banner {
         display: none;
@@ -375,7 +323,7 @@
         color: #fff;
         padding: 8px 12px;
         border-radius: var(--radius-sm);
-        font-size: .74rem;
+        font-size: .76rem;
         font-weight: 500;
         margin-bottom: 12px;
         animation: slideDown .25s ease;
@@ -446,6 +394,7 @@
     .preview-section::-webkit-scrollbar { width: 10px; }
     .preview-section::-webkit-scrollbar-track { background: transparent; }
     .preview-section::-webkit-scrollbar-thumb { background: rgba(21,68,90,.18); border-radius: 5px; }
+    .preview-section::-webkit-scrollbar-thumb:hover { background: rgba(21,68,90,.3); }
 
     .a4-card {
         width: 297mm;
@@ -574,6 +523,7 @@
         align-items: center;
         justify-content: space-between;
         font-size: .76rem;
+        letter-spacing: .1px;
     }
     .sec-header i { opacity: .9; font-size: .76rem; }
 
@@ -590,6 +540,7 @@
         background: var(--paper);
         color: var(--ink-soft);
         line-height: 1.65;
+        font-weight: 400;
     }
 
     .info-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
@@ -622,6 +573,7 @@
         border-left: 1px solid var(--line-soft);
         font-weight: 700;
         font-size: .7rem;
+        letter-spacing: -.1px;
     }
     .styled-table th:last-child { border-left: none; }
     .styled-table td {
@@ -632,6 +584,7 @@
         word-wrap: break-word;
         line-height: 1.55;
         color: var(--ink-soft);
+        font-weight: 400;
     }
     .styled-table td:last-child { border-left: none; }
     .styled-table tbody tr:nth-child(even) { background: #fbfcfd; }
@@ -742,163 +695,6 @@
         vertical-align: middle;
     }
 
-    /* ==================== النوافذ المنبثقة (Modal) ==================== */
-    .modal-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(21,68,90,.55);
-        backdrop-filter: blur(4px);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 999;
-        padding: 20px;
-        animation: fadeIn .2s ease;
-    }
-    .modal-overlay.show { display: flex; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-    .modal-box {
-        background: var(--paper);
-        border-radius: var(--radius-lg);
-        box-shadow: 0 20px 60px rgba(21,68,90,.3);
-        max-width: 420px;
-        width: 100%;
-        overflow: hidden;
-        animation: popUp .25s cubic-bezier(.4,0,.2,1);
-    }
-    @keyframes popUp {
-        from { transform: scale(.94); opacity: 0; }
-        to { transform: scale(1); opacity: 1; }
-    }
-
-    .modal-header {
-        background: var(--moe-gradient);
-        color: #fff;
-        padding: 18px 22px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        position: relative;
-        overflow: hidden;
-    }
-    .modal-header::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at 85% 50%, rgba(105,206,227,.22) 0%, transparent 60%);
-        pointer-events: none;
-    }
-    .modal-header i {
-        width: 40px; height: 40px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255,255,255,.18);
-        border-radius: 10px;
-        font-size: 1.1rem;
-        position: relative;
-        z-index: 1;
-        flex-shrink: 0;
-    }
-    .modal-header h3 {
-        font-size: 1rem;
-        font-weight: 700;
-        position: relative;
-        z-index: 1;
-    }
-    .modal-header p {
-        font-size: .72rem;
-        opacity: .85;
-        font-weight: 300;
-        margin-top: 2px;
-        position: relative;
-        z-index: 1;
-    }
-
-    .modal-body { padding: 22px; }
-
-    .modal-body .form-group { margin-bottom: 14px; }
-    .modal-body .form-group label {
-        color: var(--moe-teal);
-        font-size: .78rem;
-        font-weight: 500;
-        margin-bottom: 6px;
-        display: block;
-    }
-
-    .password-input-wrap {
-        position: relative;
-    }
-    .password-input-wrap .form-control {
-        padding-left: 40px;
-        letter-spacing: 2px;
-        font-family: 'Courier New', monospace;
-    }
-    .password-input-wrap .toggle-pass {
-        position: absolute;
-        left: 8px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: transparent;
-        border: none;
-        color: var(--ink-mute);
-        cursor: pointer;
-        padding: 6px 8px;
-        border-radius: 4px;
-        font-size: .85rem;
-    }
-    .password-input-wrap .toggle-pass:hover { color: var(--moe-teal); background: var(--teal-50); }
-
-    .password-error {
-        display: none;
-        background: #fdf2f1;
-        color: var(--danger);
-        border: 1px solid #f0c4bc;
-        padding: 8px 12px;
-        border-radius: var(--radius-sm);
-        font-size: .74rem;
-        margin-bottom: 12px;
-        align-items: center;
-        gap: 6px;
-        font-weight: 500;
-    }
-    .password-error.show { display: flex; animation: shake .35s ease; }
-    @keyframes shake {
-        0%, 100% { transform: translateX(0); }
-        20% { transform: translateX(-6px); }
-        40% { transform: translateX(6px); }
-        60% { transform: translateX(-4px); }
-        80% { transform: translateX(4px); }
-    }
-
-    .modal-actions {
-        display: flex;
-        gap: 8px;
-        margin-top: 20px;
-    }
-    .modal-actions .btn { flex: 1; justify-content: center; padding: 11px 14px; font-size: .82rem; }
-    .btn-confirm { background: var(--moe-green); color: #fff; }
-    .btn-confirm:hover { background: #068c58; }
-    .btn-cancel-modal { background: var(--teal-50); color: var(--moe-teal); border: 1px solid var(--line); }
-    .btn-cancel-modal:hover { background: var(--teal-100); }
-    .btn-danger-modal { background: var(--danger); color: #fff; }
-
-    .modal-hint {
-        font-size: .7rem;
-        color: var(--ink-mute);
-        margin-top: 12px;
-        line-height: 1.6;
-        padding: 10px;
-        background: var(--teal-50);
-        border-radius: var(--radius-sm);
-        display: flex;
-        gap: 8px;
-        align-items: flex-start;
-    }
-    .modal-hint i { color: var(--moe-teal-2); margin-top: 2px; flex-shrink: 0; }
-
-    /* ==================== التجاوب ==================== */
     @media (max-width: 1200px) {
         .app-container { flex-direction: column; overflow: auto; }
         .form-section { width: 100%; border-left: none; border-bottom: 1px solid var(--line); flex-shrink: 0; }
@@ -912,7 +708,7 @@
 
     @media print {
         body, .app-container { background: #fff; height: auto; overflow: visible; display: block; }
-        .form-section, .modal-overlay { display: none !important; }
+        .form-section { display: none !important; }
         .preview-section { padding: 0; display: block; background: #fff; }
         .a4-card {
             box-shadow: none;
@@ -932,9 +728,7 @@
 
 <div class="app-container">
 
-    <aside class="form-section" id="form-section">
-
-        <!-- شاشة القفل العامة عند بدء التطبيق -->
+    <aside class="form-section">
         <div class="form-header">
             <div class="header-badge">
                 <i class="fas fa-crown"></i>
@@ -947,79 +741,63 @@
                 <button type="button" class="btn btn-load"  onclick="loadData()"><i class="fas fa-upload"></i> استرجاع</button>
                 <button type="button" class="btn btn-clear" onclick="clearData()"><i class="fas fa-trash"></i> مسح</button>
                 <button type="button" class="btn btn-print" onclick="window.print()"><i class="fas fa-print"></i> طباعة</button>
-                <button type="button" class="btn btn-pass"  onclick="openChangePassword()"><i class="fas fa-key"></i> تغيير كلمة المرور</button>
             </div>
             <div id="toast-notification" class="toast-msg"></div>
         </div>
 
         <div class="form-body">
 
-            <!-- ========== بيانات الاجتماع (محمية) ========== -->
-            <div class="sec-title">
-                <i class="fas fa-calendar-check"></i>
-                <span class="sec-title-text">بيانات الاجتماع</span>
-                <span class="protected-badge" id="badge-basic"><i class="fas fa-lock"></i> محمي</span>
-                <button type="button" class="lock-btn locked" id="lock-btn-basic" onclick="handleLockClick('basic')" title="إلغاء القفل">
-                    <i class="fas fa-lock"></i>
-                </button>
+            <div class="sec-title"><i class="fas fa-calendar-check"></i> بيانات الاجتماع</div>
+
+            <div class="form-group">
+                <label>عنوان الاجتماع</label>
+                <input type="text" id="inp-meeting-title" class="form-control" placeholder="مثال: اجتماع المساعد للشؤون التعليمية" oninput="updateView()">
             </div>
 
-            <div id="protected-basic-fields">
-                <div class="form-group protected-field">
-                    <label>عنوان الاجتماع</label>
-                    <input type="text" id="inp-meeting-title" class="form-control" placeholder="مثال: اجتماع المساعد للشؤون التعليمية" oninput="updateView()" disabled>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>رقم / مسمى الاجتماع</label>
+                    <input type="text" id="inp-meeting-no" class="form-control" placeholder="الاجتماع الأول" oninput="updateView()">
                 </div>
-
-                <div class="grid-2">
-                    <div class="form-group protected-field">
-                        <label>رقم / مسمى الاجتماع</label>
-                        <input type="text" id="inp-meeting-no" class="form-control" placeholder="الاجتماع الأول" oninput="updateView()" disabled>
-                    </div>
-                    <div class="form-group protected-field">
-                        <label>اليوم</label>
-                        <input type="text" id="inp-day" class="form-control" placeholder="الأحد" oninput="updateView()" disabled>
-                    </div>
-                </div>
-
-                <div class="grid-2">
-                    <div class="form-group protected-field">
-                        <label>التاريخ</label>
-                        <input type="text" id="inp-date" class="form-control" placeholder="1447/04/12 هـ" oninput="updateView()" disabled>
-                    </div>
-                    <div class="form-group protected-field">
-                        <label>وقت البداية</label>
-                        <input type="time" id="inp-start" class="form-control" oninput="updateView()" disabled>
-                    </div>
-                </div>
-
-                <div class="form-group protected-field">
-                    <label>المكان</label>
-                    <input type="text" id="inp-place" class="form-control" placeholder="قاعة الاجتماعات – الإدارة العامة للتعليم" oninput="updateView()" disabled>
-                </div>
-
-                <div class="grid-2">
-                    <div class="form-group protected-field">
-                        <label>اسم المساعد (رئيس الاجتماع)</label>
-                        <input type="text" id="inp-assistant" class="form-control" placeholder="د. خالد بن عبدالله" oninput="updateView()" disabled>
-                    </div>
-                    <div class="form-group protected-field">
-                        <label>المسمى الوظيفي</label>
-                        <input type="text" id="inp-assistant-title" class="form-control" placeholder="المساعد للشؤون التعليمية" oninput="updateView()" disabled>
-                    </div>
-                </div>
-
-                <div class="form-group protected-field">
-                    <label>هدف / نبذة عن الاجتماع</label>
-                    <textarea id="inp-purpose" class="form-control" placeholder="استعراض خطط ومبادرات الإدارات والأقسام والوحدات..." oninput="updateView()" disabled></textarea>
+                <div class="form-group">
+                    <label>اليوم</label>
+                    <input type="text" id="inp-day" class="form-control" placeholder="الأحد" oninput="updateView()">
                 </div>
             </div>
 
-            <!-- ========== إضافة محور ========== -->
-            <div class="sec-title">
-                <i class="fas fa-list-ol"></i>
-                <span class="sec-title-text">إضافة محور للاجتماع</span>
-                <span class="protected-badge unlocked" style="background:#e8f7f0;color:#07a869;border-color:#c9ecdb;"><i class="fas fa-unlock"></i> متاح للجميع</span>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>التاريخ</label>
+                    <input type="text" id="inp-date" class="form-control" placeholder="1447/04/12 هـ" oninput="updateView()">
+                </div>
+                <div class="form-group">
+                    <label>وقت البداية</label>
+                    <input type="time" id="inp-start" class="form-control" oninput="updateView()">
+                </div>
             </div>
+
+            <div class="form-group">
+                <label>المكان</label>
+                <input type="text" id="inp-place" class="form-control" placeholder="قاعة الاجتماعات – الإدارة العامة للتعليم" oninput="updateView()">
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>اسم المساعد (رئيس الاجتماع)</label>
+                    <input type="text" id="inp-assistant" class="form-control" placeholder="د. خالد بن عبدالله" oninput="updateView()">
+                </div>
+                <div class="form-group">
+                    <label>المسمى الوظيفي</label>
+                    <input type="text" id="inp-assistant-title" class="form-control" placeholder="المساعد للشؤون التعليمية" oninput="updateView()">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>هدف / نبذة عن الاجتماع</label>
+                <textarea id="inp-purpose" class="form-control" placeholder="استعراض خطط ومبادرات الإدارات والأقسام والوحدات..." oninput="updateView()"></textarea>
+            </div>
+
+            <div class="sec-title"><i class="fas fa-list-ol"></i> إضافة محور للاجتماع</div>
 
             <div class="dynamic-table-controls" id="topics-form-box">
                 <h4><i class="fas fa-building" id="form-box-icon"></i> <span id="form-box-title">نموذج الإدارات والأقسام والوحدات</span></h4>
@@ -1063,7 +841,7 @@
 
                 <p class="hint">
                     <i class="fas fa-info-circle"></i>
-                    <span>لتعديل <b>محور الافتتاح</b> اضغط على أيقونة القفل 🔒 بجانب عنوان القسم أعلاه لتحرير البيانات المحمية، ثم عدّل الحقول هنا.</span>
+                    <span>لتعديل <b>محور الافتتاح</b> اضغط على أيقونة القلم ✏️ بجانبه في قائمة المحاور بالأسفل، ثم عدّل الحقول هنا.</span>
                 </p>
 
                 <div id="topics-list-manage" style="margin-top: 14px;"></div>
@@ -1079,26 +857,20 @@
                 </div>
             </div>
 
-            <!-- ========== اعتماد الاجتماع (محمي أيضاً) ========== -->
-            <div class="sec-title">
-                <i class="fas fa-stamp"></i>
-                <span class="sec-title-text">اعتماد الاجتماع</span>
-                <span class="protected-badge" id="badge-approver"><i class="fas fa-lock"></i> محمي</span>
-            </div>
+            <div class="sec-title"><i class="fas fa-stamp"></i> اعتماد الاجتماع</div>
 
-            <div class="form-group protected-field">
+            <div class="form-group">
                 <label>اسم المعتمد</label>
-                <input type="text" id="inp-approver-name" class="form-control" placeholder="الاسم" oninput="updateView()" disabled>
+                <input type="text" id="inp-approver-name" class="form-control" placeholder="الاسم" oninput="updateView()">
             </div>
-            <div class="form-group protected-field">
+            <div class="form-group">
                 <label>المسمى الوظيفي للمعتمد</label>
-                <input type="text" id="inp-approver-title" class="form-control" placeholder="مدير عام التعليم" oninput="updateView()" disabled>
+                <input type="text" id="inp-approver-title" class="form-control" placeholder="مدير عام التعليم" oninput="updateView()">
             </div>
 
         </div>
     </aside>
 
-    <!-- ===================== المعاينة ===================== -->
     <main class="preview-section">
         <div class="a4-card" id="print-area">
 
@@ -1205,129 +977,7 @@
     </main>
 </div>
 
-<!-- ==================== نافذة كلمة المرور (فتح القفل) ==================== -->
-<div class="modal-overlay" id="password-modal">
-    <div class="modal-box">
-        <div class="modal-header">
-            <i class="fas fa-lock"></i>
-            <div>
-                <h3>البيانات محمية بكلمة مرور</h3>
-                <p>أدخل كلمة المرور لتحرير البيانات الأساسية ومحور المساعد</p>
-            </div>
-        </div>
-        <div class="modal-body">
-            <div class="password-error" id="password-error">
-                <i class="fas fa-exclamation-circle"></i>
-                <span>كلمة المرور غير صحيحة. حاول مرة أخرى.</span>
-            </div>
-            <div class="form-group">
-                <label>كلمة المرور</label>
-                <div class="password-input-wrap">
-                    <input type="password" id="password-input" class="form-control" placeholder="••••••••" autocomplete="off">
-                    <button type="button" class="toggle-pass" onclick="togglePasswordVisibility()" tabindex="-1">
-                        <i class="fas fa-eye" id="toggle-icon"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="modal-hint">
-                <i class="fas fa-info-circle"></i>
-                <span>كلمة المرور الافتراضية: <b>moe2025</b> — يمكنك تغييرها من زر «تغيير كلمة المرور» في الأعلى.</span>
-            </div>
-            <div class="modal-actions">
-                <button type="button" class="btn btn-cancel-modal" onclick="closeModal('password-modal')">
-                    <i class="fas fa-times"></i> إلغاء
-                </button>
-                <button type="button" class="btn btn-confirm" onclick="submitPassword()">
-                    <i class="fas fa-unlock"></i> فتح القفل
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ==================== نافذة تغيير كلمة المرور ==================== -->
-<div class="modal-overlay" id="change-password-modal">
-    <div class="modal-box">
-        <div class="modal-header">
-            <i class="fas fa-key"></i>
-            <div>
-                <h3>تغيير كلمة المرور</h3>
-                <p>قم بتعيين كلمة مرور جديدة للبيانات المحمية</p>
-            </div>
-        </div>
-        <div class="modal-body">
-            <div class="password-error" id="change-error">
-                <i class="fas fa-exclamation-circle"></i>
-                <span id="change-error-text"></span>
-            </div>
-            <div class="form-group">
-                <label>كلمة المرور الحالية</label>
-                <div class="password-input-wrap">
-                    <input type="password" id="current-password" class="form-control" placeholder="••••••••" autocomplete="off">
-                </div>
-            </div>
-            <div class="form-group">
-                <label>كلمة المرور الجديدة</label>
-                <div class="password-input-wrap">
-                    <input type="password" id="new-password" class="form-control" placeholder="4 أحرف على الأقل" autocomplete="off">
-                </div>
-            </div>
-            <div class="form-group">
-                <label>تأكيد كلمة المرور الجديدة</label>
-                <div class="password-input-wrap">
-                    <input type="password" id="confirm-password" class="form-control" placeholder="أعد كتابة كلمة المرور" autocomplete="off">
-                </div>
-            </div>
-            <div class="modal-actions">
-                <button type="button" class="btn btn-cancel-modal" onclick="closeModal('change-password-modal')">
-                    <i class="fas fa-times"></i> إلغاء
-                </button>
-                <button type="button" class="btn btn-confirm" onclick="submitChangePassword()">
-                    <i class="fas fa-check"></i> حفظ التغيير
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <script>
-/* ==================== إدارة كلمة المرور ==================== */
-const DEFAULT_PASSWORD = 'moe2025';
-const PASSWORD_STORAGE_KEY = 'moe_agenda_password_v2';
-
-/* دالة تجزئة بسيطة (لإخفاء كلمة المرور عن العرض المباشر في localStorage) */
-function simpleHash(str) {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-        const ch = str.charCodeAt(i);
-        hash = ((hash << 5) - hash) + ch;
-        hash |= 0;
-    }
-    let h2 = 5381;
-    for (let i = str.length - 1; i >= 0; i--) {
-        h2 = ((h2 << 5) + h2) + str.charCodeAt(i);
-        h2 |= 0;
-    }
-    return 'h_' + Math.abs(hash).toString(36) + '_' + Math.abs(h2).toString(36);
-}
-
-function getStoredPasswordHash() {
-    return localStorage.getItem(PASSWORD_STORAGE_KEY) || simpleHash(DEFAULT_PASSWORD);
-}
-
-function verifyPassword(input) {
-    if (!input) return false;
-    return simpleHash(input) === getStoredPasswordHash();
-}
-
-function setNewPassword(newPass) {
-    localStorage.setItem(PASSWORD_STORAGE_KEY, simpleHash(newPass));
-}
-
-/* ==================== حالة القفل ==================== */
-let isBasicUnlocked = false;         /* هل البيانات الأساسية مفتوحة للتحرير؟ */
-let pendingUnlockAction = null;      /* ماذا نفعل بعد نجاح كلمة المرور؟ */
-
 /* ==================== البيانات ==================== */
 const FIXED_ENTITY = 'المساعد للشؤون التعليمية';
 
@@ -1369,6 +1019,7 @@ let stateData = {
     ]
 };
 
+/* حالة التعديل على محور الافتتاح */
 let editingFixedTopic = false;
 
 /* ==================== أدوات مساعدة ==================== */
@@ -1390,173 +1041,11 @@ function fmtTime(mins) {
     return `${String(hh).padStart(2, '0')}:${String(m).padStart(2, '0')} ${period}`;
 }
 
-/* ==================== النوافذ المنبثقة ==================== */
-function openModal(id) {
-    $(id).classList.add('show');
-}
-function closeModal(id) {
-    $(id).classList.remove('show');
-    if (id === 'password-modal') {
-        $('password-error').classList.remove('show');
-        $('password-input').value = '';
-        pendingUnlockAction = null;
-    }
-    if (id === 'change-password-modal') {
-        $('change-error').classList.remove('show');
-        $('current-password').value = '';
-        $('new-password').value = '';
-        $('confirm-password').value = '';
-    }
-}
-
-function togglePasswordVisibility() {
-    const inp = $('password-input');
-    const icon = $('toggle-icon');
-    if (inp.type === 'password') {
-        inp.type = 'text';
-        icon.className = 'fas fa-eye-slash';
-    } else {
-        inp.type = 'password';
-        icon.className = 'fas fa-eye';
-    }
-}
-
-/* ==================== القفل/الفتح ==================== */
-function handleLockClick(section) {
-    if (section === 'basic') {
-        if (isBasicUnlocked) {
-            /* إغلاق القفل */
-            lockBasic();
-            showToast('تم قفل البيانات المحمية', 'info');
-        } else {
-            /* طلب كلمة المرور */
-            pendingUnlockAction = 'unlock-basic';
-            $('password-error').classList.remove('show');
-            $('password-input').value = '';
-            openModal('password-modal');
-            setTimeout(() => $('password-input').focus(), 200);
-        }
-    }
-}
-
-function submitPassword() {
-    const input = $('password-input').value;
-    if (verifyPassword(input)) {
-        closeModal('password-modal');
-        if (pendingUnlockAction === 'unlock-basic') {
-            unlockBasic();
-            showToast('تم فتح القفل — يمكنك الآن تحرير البيانات', 'success');
-        } else if (pendingUnlockAction === 'unlock-fixed-topic') {
-            unlockBasic();
-            startEditFixedTopic();
-        }
-        pendingUnlockAction = null;
-    } else {
-        $('password-error').classList.add('show');
-        $('password-input').value = '';
-        $('password-input').focus();
-    }
-}
-
-function unlockBasic() {
-    isBasicUnlocked = true;
-
-    /* تفعيل الحقول */
-    document.querySelectorAll('#protected-basic-fields .form-control').forEach(el => el.disabled = false);
-    ['inp-approver-name', 'inp-approver-title'].forEach(id => $(id).disabled = false);
-
-    /* تحديث زر القفل */
-    const btn = $('lock-btn-basic');
-    btn.classList.remove('locked');
-    btn.classList.add('unlocked');
-    btn.title = 'قفل البيانات';
-    btn.innerHTML = '<i class="fas fa-unlock"></i>';
-
-    /* تحديث الشارات */
-    const badge = $('badge-basic');
-    badge.classList.add('unlocked');
-    badge.innerHTML = '<i class="fas fa-unlock"></i> مفتوح';
-
-    const badgeAp = $('badge-approver');
-    badgeAp.classList.add('unlocked');
-    badgeAp.innerHTML = '<i class="fas fa-unlock"></i> مفتوح';
-}
-
-function lockBasic() {
-    isBasicUnlocked = false;
-
-    document.querySelectorAll('#protected-basic-fields .form-control').forEach(el => el.disabled = true);
-    ['inp-approver-name', 'inp-approver-title'].forEach(id => $(id).disabled = true);
-
-    /* إنهاء وضع التعديل إن كان قائماً */
-    if (editingFixedTopic) cancelEditFixed();
-
-    const btn = $('lock-btn-basic');
-    btn.classList.remove('unlocked');
-    btn.classList.add('locked');
-    btn.title = 'فتح القفل';
-    btn.innerHTML = '<i class="fas fa-lock"></i>';
-
-    const badge = $('badge-basic');
-    badge.classList.remove('unlocked');
-    badge.innerHTML = '<i class="fas fa-lock"></i> محمي';
-
-    const badgeAp = $('badge-approver');
-    badgeAp.classList.remove('unlocked');
-    badgeAp.innerHTML = '<i class="fas fa-lock"></i> محمي';
-}
-
-/* عند الضغط على تعديل محور الافتتاح: يتطلب فتح القفل أولاً */
-function handleEditFixedTopic() {
-    if (!isBasicUnlocked) {
-        pendingUnlockAction = 'unlock-fixed-topic';
-        $('password-error').classList.remove('show');
-        $('password-input').value = '';
-        openModal('password-modal');
-        setTimeout(() => $('password-input').focus(), 200);
-        return;
-    }
-    startEditFixedTopic();
-}
-
-/* ==================== تغيير كلمة المرور ==================== */
-function openChangePassword() {
-    $('change-error').classList.remove('show');
-    $('current-password').value = '';
-    $('new-password').value = '';
-    $('confirm-password').value = '';
-    openModal('change-password-modal');
-    setTimeout(() => $('current-password').focus(), 200);
-}
-
-function submitChangePassword() {
-    const current = $('current-password').value;
-    const newPass = $('new-password').value;
-    const confirm = $('confirm-password').value;
-    const errBox = $('change-error');
-    const errText = $('change-error-text');
-
-    function showErr(msg) {
-        errText.textContent = msg;
-        errBox.classList.add('show');
-    }
-
-    if (!current) { showErr('يرجى إدخال كلمة المرور الحالية.'); return; }
-    if (!verifyPassword(current)) { showErr('كلمة المرور الحالية غير صحيحة.'); return; }
-    if (!newPass || newPass.length < 4) { showErr('كلمة المرور الجديدة يجب أن تكون 4 أحرف على الأقل.'); return; }
-    if (newPass !== confirm) { showErr('كلمتا المرور الجديدتان غير متطابقتين.'); return; }
-
-    setNewPassword(newPass);
-    closeModal('change-password-modal');
-    showToast('تم تغيير كلمة المرور بنجاح', 'success');
-}
-
 /* ==================== التهيئة ==================== */
 window.onload = function () {
     bindInputs();
     updateView();
     renderManageList();
-    lockBasic(); /* البدء بحالة مقفلة */
 };
 
 function bindInputs() {
@@ -1653,13 +1142,11 @@ function addTopic() {
     if (!entity) { showToast('يرجى تحديد الإدارة / القسم / الوحدة', 'error'); return; }
     if (!duration || duration <= 0) { showToast('يرجى إدخال مدة صحيحة بالدقائق', 'error'); return; }
 
+    /* وضع التعديل على محور الافتتاح */
     if (editingFixedTopic) {
-        if (!isBasicUnlocked) {
-            showToast('يجب فتح قفل البيانات المحمية أولاً', 'error');
-            return;
-        }
         stateData.topics[0] = {
-            axis, entity,
+            axis,
+            entity,
             presenter: presenter || '---',
             duration,
             notes: notes || '',
@@ -1672,6 +1159,7 @@ function addTopic() {
         return;
     }
 
+    /* الإضافة العادية */
     stateData.topics.push({
         axis, entity,
         presenter: presenter || '---',
@@ -1687,6 +1175,7 @@ function addTopic() {
     showToast('تمت إضافة المحور بنجاح', 'success');
 }
 
+/* بدء تعديل محور الافتتاح */
 function startEditFixedTopic() {
     const fixed = stateData.topics[0];
     if (!fixed || !fixed.fixed) return;
@@ -1699,23 +1188,30 @@ function startEditFixedTopic() {
     $('top-duration').value  = fixed.duration || 15;
     $('top-notes').value     = fixed.notes || '';
 
+    /* تحويل الزر إلى وضع التحديث */
     $('btn-add-text').textContent = 'تحديث محور الافتتاح';
     $('btn-add-icon').className   = 'fas fa-save';
     $('btn-add-topic').classList.add('editing');
     $('btn-cancel-edit').style.display = 'inline-flex';
 
+    /* إظهار البانر وتلوين الصندوق */
     $('edit-banner').classList.add('show');
     $('topics-form-box').classList.add('editing-mode');
     $('form-box-icon').className = 'fas fa-pen-to-square';
     $('form-box-title').textContent = 'تعديل محور الافتتاح';
 
+    /* تحديث قائمة المحاور لإبراز الصف الجاري تعديله */
     renderManageList();
+
+    /* تمرير إلى النموذج */
     $('topics-form-box').scrollIntoView({ behavior: 'smooth', block: 'start' });
     setTimeout(() => $('top-axis').focus(), 300);
 }
 
+/* إلغاء وضع التعديل */
 function cancelEditFixed() {
     editingFixedTopic = false;
+
     ['top-entity', 'top-axis', 'top-presenter', 'top-notes'].forEach(id => $(id).value = '');
     $('top-duration').value = 10;
 
@@ -1728,6 +1224,7 @@ function cancelEditFixed() {
     $('topics-form-box').classList.remove('editing-mode');
     $('form-box-icon').className = 'fas fa-building';
     $('form-box-title').textContent = 'نموذج الإدارات والأقسام والوحدات';
+
     renderManageList();
 }
 
@@ -1765,7 +1262,7 @@ function renderManageList() {
             </span>
             <span class="item-actions">
                 ${t.fixed ? `
-                    <button class="btn btn-edit-row" onclick="handleEditFixedTopic()" title="تعديل محور الافتتاح (يتطلب كلمة المرور)">
+                    <button class="btn btn-edit-row" onclick="startEditFixedTopic()" title="تعديل محور الافتتاح">
                         <i class="fas fa-pen"></i>
                     </button>
                 ` : ''}
@@ -1863,7 +1360,9 @@ function loadData() {
         });
     }
 
+    /* إلغاء أي وضع تعديل قبل الاسترجاع */
     cancelEditFixed();
+
     bindInputs();
     updateView();
     renderManageList();
@@ -1871,11 +1370,6 @@ function loadData() {
 }
 
 function clearData() {
-    /* مسح البيانات يتطلب كلمة المرور إذا كانت مقفلة */
-    if (!isBasicUnlocked) {
-        showToast('يجب فتح القفل أولاً لمسح البيانات', 'error');
-        return;
-    }
     if (!confirm('هل أنت متأكد من رغبتك في مسح كافة البيانات؟')) return;
 
     stateData = {
@@ -1893,6 +1387,7 @@ function clearData() {
     };
 
     cancelEditFixed();
+
     bindInputs();
     updateView();
     renderManageList();
@@ -1904,31 +1399,11 @@ function showToast(msg, type) {
     const toast = $('toast-notification');
     if (!toast) return;
     toast.className = `toast-msg toast-${type}`;
-    const icon = type === 'success' ? 'check-circle' : type === 'info' ? 'info-circle' : 'exclamation-circle';
-    toast.innerHTML = `<i class="fas fa-${icon}"></i> ${msg}`;
+    toast.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i> ${msg}`;
     toast.style.display = 'flex';
     clearTimeout(toast._timer);
     toast._timer = setTimeout(() => { toast.style.display = 'none'; }, 2500);
 }
-
-/* ==================== اختصارات لوحة المفاتيح ==================== */
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-        if ($('password-modal').classList.contains('show')) closeModal('password-modal');
-        if ($('change-password-modal').classList.contains('show')) closeModal('change-password-modal');
-    }
-    if (e.key === 'Enter' && $('password-modal').classList.contains('show')) {
-        e.preventDefault();
-        submitPassword();
-    }
-});
-
-/* إغلاق النافذة عند النقر على الخلفية */
-['password-modal', 'change-password-modal'].forEach(id => {
-    $(id).addEventListener('click', e => {
-        if (e.target.id === id) closeModal(id);
-    });
-});
 </script>
 
 </body>
